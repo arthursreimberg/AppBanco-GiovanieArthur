@@ -1,0 +1,55 @@
+﻿@model IEnumerable<appQuintoGiovaniArthur.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a class="btn btn-primary" asp-action="CadastrarCliente" asp-controller="Cliente">Cadastrar</a>
+</p>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"> @Html.DisplayNameFor(model => model.IdCli)</th>
+                <th scope="col"> @Html.DisplayNameFor(model => model.NomeCli)</th>
+                <th scope="col"> @Html.DisplayNameFor(model => model.RG)</th>
+                <th scope="col"> @Html.DisplayNameFor(model => model.CPF)</th>
+                <th scope="col"> @Html.DisplayNameFor(model => model.DataNasCli)</th>
+                <th scope="col">Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Cliente cliente in Model)
+            {
+                <tr>
+                    <td>@cliente.IdCli </td>
+                    <td>@cliente.NomeCli </td>
+                    <td>@cliente.RG</td>
+                    <td>@cliente.CPF</td>
+                    <td>@cliente.DataNasCli.ToString("dd/MM/yyyy")</td>
+                    <td>
+
+                        <button type="button" class="btn btn-warning">
+                            @Html.ActionLink("Editar", "AtualizarCliente", new { id = cliente.IdCli })
+                        </button>
+
+
+                        <button type="button" class="btn btn-secondary">
+                            @Html.ActionLink("Detalhes", "DetalhesCliente", new { id = cliente.IdCli })
+                        </button>
+
+
+                        <button type="button" class="btn btn-danger">
+                            @Html.ActionLink("Excluir", "ExcluirCliente", new { id = cliente.IdCli }, new { onclick = "return confirm('Deseja realmente desativar?');" })
+                        </button>
+
+
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

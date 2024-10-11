@@ -1,0 +1,47 @@
+﻿@model appQuintoGiovaniArthur.Models.Usuario
+
+@{
+    ViewData["Title"] = "DetalhesUsuario";
+}
+
+<h1>DetalhesUsuario</h1>
+
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdUsu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdUsu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomeUsu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomeUsu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cargo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cargo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataNasc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataNasc)
+        </dd>
+    </dl>
+</div>
+<div>
+    <button type="button" class="btn btn-warning">
+        @Html.ActionLink("Editar", "AtualizarUsuario", new { id = Model.IdUsu })
+    </button>
+
+    <button type="button" class="btn btn-secondary">
+        @Html.ActionLink("Voltar", "Index")
+    </button>
+</div>
